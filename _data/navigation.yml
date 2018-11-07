@@ -1,4 +1,4 @@
 - name: Home
-  link: machinelearningnotes
+  link: / 
 - name: About
-  link: machinelearningnotes/about.html
+  link: /about.html
