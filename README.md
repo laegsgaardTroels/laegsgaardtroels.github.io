@@ -2,4 +2,17 @@ guide:  https://help.github.com/articles/setting-up-your-github-pages-site-local
 
 view Keeping your site up to date with the GitHub Pages gem in above.
 
+To install on mac run 
+```
+bundle install --path vendor/cache
+```
+
+Things to install.
+```
 gem install rouge
+```
+
+Serve jekyll locally.
+```
+jekyll serve
+```
