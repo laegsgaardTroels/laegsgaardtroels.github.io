@@ -2,11 +2,21 @@
 layout: default
 title: Blog
 ---
-<ul>
+<div class="row mb-2">
   {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
+  <div class="col-md-6">
+    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+      <div class="card-body d-flex flex-column align-items-start">
+        <!-- CATEGORY <strong class="d-inline-block mb-2 text-primary">World</strong>-->
+        <h3 class="mb-0">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <div class="mb-1 text-muted">{{ post.date | date_to_string }}</div>
+        <p>{{ post.excerpt }}</p>
+        <a href="{{ post.url }}">Continue reading</a>
+      </div>
+      <img class="blog-img card-img-right flex-auto d-none d-md-block"src="{{ post.image }}" onerror="this.src='https://3a09223b3cd53870eeaa-7f75e5eb51943043279413a54aaa858a.ssl.cf3.rackcdn.com/ae12dd714ec8da1e22fcc709e64c6a2edd166241-1523105162-5ac8bd8a-620x348.jpg';">
+    </div>
+  </div>
   {% endfor %}
-</ul>
+</div>

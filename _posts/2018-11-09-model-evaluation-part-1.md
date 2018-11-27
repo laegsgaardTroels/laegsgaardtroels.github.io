@@ -1,4 +1,10 @@
- This is to minimize *risk* given a hypothesis space $\mathcal{H}$. To simplyfy matters assume the hypothesis space consists of a finilite set of estimators $\mathcal{H}=\{h_1,h_2,\dots,h_M\}$. Given a *loss function* $L$ which we for simplicity assume is the 0-1 loss $L(\hat{y},y)=1_{\{\hat{y}\neq y\}}(\hat{y},y)$. Risk is then defined as
+---
+image: https://images.spot.im/v1/production/ql5upy4yp0pilj6xnujb 
+---
+
+Giving an estimate of generalization error in Machine Learning is vital.<!--more-->
+
+This is to minimize *risk* given a hypothesis space $\mathcal{H}$. To simplyfy matters assume the hypothesis space consists of a finilite set of estimators $\mathcal{H}=\{h_1,h_2,\dots,h_M\}$. Given a *loss function* $L$ which we for simplicity assume is the 0-1 loss $L(\hat{y},y)=1_{\{\hat{y}\neq y\}}(\hat{y},y)$. Risk is then defined as
 
 $$
 \begin{aligned}
@@ -30,6 +36,7 @@ $$
 $$
 
 This is known as *Empirical Risk Mimimization* (ERM).
+
 
 ## Theory
 
@@ -107,3 +114,6 @@ $$
 has a nice representation as the number of bits needed to represent $\mathcal{H}$, which seems like a natural measure to measure the complexity of a finite hypothesis space.
 
 Similar bound holds on the testing dataset, which is used give to the user of the model as an assesment of performance, the complexity term $\Omega(\mathcal{H},N)$ is then much smaller, because one usually only selects one model to test in practice: The best one on the validation set.
+
+
+

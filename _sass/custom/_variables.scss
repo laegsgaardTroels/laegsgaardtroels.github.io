@@ -1,6 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 
 img {
     max-width: 100%;
     height: auto;
 }
+.blog-img {
+    width: 200px;
+    height: 250px;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.blog-footer {
 
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+    
+    position: absolute;
+    bottom: 0;
+}

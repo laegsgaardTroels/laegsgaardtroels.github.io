@@ -1,4 +1,7 @@
-In this post the famous AdaBoost algoritm will be implemented in R and tested on simulated data. The post is intented to yield some intuition and understanding about what boosting is via an exercise. 
+---
+image: /assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png
+---
+In this post the famous AdaBoost algoritm will be implemented in R<!--more--> and tested on simulated data. The post is intented to yield some intuition and understanding about what boosting is via an exercise. 
 
 What is boosting? Lets start explaining this with a nice analogy provided by the masters of boosting: Yoav Freund and Robert E. Schapire, you could imagine the horse racing-gampler being an overly intelligent gambler from Peaky Blinders:
 
@@ -54,6 +57,7 @@ Finally plot the training data to see how it looks like. The blue points are tho
 
 
 ![](/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png)
+
 
 ## Make weak classifier
 
@@ -117,6 +121,7 @@ The weighted accuracy `e_t` is used to weigh the new weak hypothesis in the fina
 
 At the end of each iteration the distribution w is updated, putting more weight to incorrectly classified observations `w * exp(-alpha_t*train.y*predict(train.X,list(h_t),1))`. The `Z_t` is used for normalization of the weights to a probability distribution.
 
+
 ## Running the algorithm
 
 Below one sees how the algorithm combines the weak classifiers. To the left one sees the combined classifier at iteration t and to the right the hypothesis fitted at iteration t of AdaBoost. Observations marked green is classified correctly by the given hypothesis and observations marked red are classified incorrectly. One observes how AdaBoost zooms in on the observations which is hard to classify, in the last iterations: Those on the inside of the circle. AdaBoost is also used in the outlier detection because of this property.
@@ -143,3 +148,4 @@ Where \\(R(H)\\) is the true generalization error, \\(\hat{R}(H)\\) is the in-sa
 ## Conclusion
 
 This post touched the surface of some components of AdaBoost, and hopefully woke some interest into these types of algorithms. 
+
