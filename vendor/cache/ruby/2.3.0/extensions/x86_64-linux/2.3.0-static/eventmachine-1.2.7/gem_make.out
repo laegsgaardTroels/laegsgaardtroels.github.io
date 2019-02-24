@@ -1,0 +1,24 @@
+current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/home/troels/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190224-31779-1wfriu4.rb extconf.rb
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/eventmachine-1.2.7/mkmf.log
+
+current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR="
+compiling rubymain.cpp
+cc1plus: warning: command line option ‘-Wdeclaration-after-statement’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wimplicit-function-declaration’ is valid for C/ObjC but not for C++
+compiling mapper.cpp
+cc1plus: warning: command line option ‘-Wdeclaration-after-statement’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wimplicit-function-declaration’ is valid for C/ObjC but not for C++
+linking shared-object fastfilereaderext.so
+
+current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20190224-31779-xodelt
