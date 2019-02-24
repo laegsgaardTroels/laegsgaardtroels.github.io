@@ -1,5 +1,5 @@
 ---
-image: https://images.spot.im/v1/production/ql5upy4yp0pilj6xnujb 
+image:
 ---
 
 Giving an estimate of generalization error in Machine Learning is vital.<!--more-->
@@ -114,6 +114,3 @@ $$
 has a nice representation as the number of bits needed to represent $\mathcal{H}$, which seems like a natural measure to measure the complexity of a finite hypothesis space.
 
 Similar bound holds on the testing dataset, which is used give to the user of the model as an assesment of performance, the complexity term $\Omega(\mathcal{H},N)$ is then much smaller, because one usually only selects one model to test in practice: The best one on the validation set.
-
-
-

@@ -1,5 +1,5 @@
 ---
-image: https://www.motherjones.com/wp-content/uploads/atomic_bombing_nagasaki.jpg?w=990
+image:
 ---
 What is cross validation, what is a theoretial justification and how to use it in practice?<!--more-->
 
