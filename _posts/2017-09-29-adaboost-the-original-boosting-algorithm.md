@@ -110,9 +110,6 @@ these will be used for evaluation of the algorithm afterwards.
 	  H[[t]] <- h_t
 
 
-
-
-
 	  train_err <- c(train_err, mean(predict(train.X,H,alphas) != train.y))
 	  test_err <- c(test_err, mean(predict(test.X,H,alphas) != test.y))
 	}
