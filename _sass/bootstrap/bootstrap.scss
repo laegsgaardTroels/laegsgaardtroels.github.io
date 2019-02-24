@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
+@import "../rouge/syntax"; // we've added this line
 @import "../custom/variables"; // we've added this line
 @import "functions";
 @import "variables";

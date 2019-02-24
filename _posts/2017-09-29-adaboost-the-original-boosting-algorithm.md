@@ -20,7 +20,9 @@ AdaBoost was the first really succesful boosting algorithm, it has undergone a l
 
 The packages that will be used in this post is the `ggplot2`, a package used for plotting in R, `latex2exp`, which is used to insert some latex code in R and `pacman` which has the function `pacman::p_load` that can be used to install and load packages,
 
-	pacman::p_load(ggplot2, latex2exp)
+```r
+pacman::p_load(ggplot2, latex2exp)
+```
 
 The `pacman::p_load` function can be seen as a more robust alternative to the functions `require` and `library`, which are usually used to load in packages.
 
@@ -28,30 +30,38 @@ The `pacman::p_load` function can be seen as a more robust alternative to the fu
 
 To have complete control over the set-up for this exercise, the data for the classification problem will be simulated. First we will simulate `m <- 10^5`  datapoints in a circle with added noise `sd<-0.13`, and put the result in the dataframe `circ.df`, with the label `-1`.
 
-    theta <- runif(m, 0, 2*pi)
-    circ.x <- cos(theta) + rnorm(m,sd=sd)
-    circ.y <- sin(theta) + rnorm(m,sd=sd)
-    circ.df <- data.frame(label = -1, x = circ.x, y = circ.y)
+```r
+  theta <- runif(m, 0, 2*pi)
+  circ.x <- cos(theta) + rnorm(m,sd=sd)
+  circ.y <- sin(theta) + rnorm(m,sd=sd)
+  circ.df <- data.frame(label = -1, x = circ.x, y = circ.y)
+```
 
 Simulate `m` points inside the circle with added noise and put it in `center.df`.
 
-    center.x <- rnorm(m,sd=sd)
-    center.y <- rnorm(m,sd=sd)
-    center.df <- data.frame(label = 1, x = center.x, y = center.y)
+```r
+center.x <- rnorm(m,sd=sd)
+center.y <- rnorm(m,sd=sd)
+center.df <- data.frame(label = 1, x = center.x, y = center.y)
+```
 
 Bind the two dataframes together row-wise with rbind and scrample the data s.t. they don't lie in order.
 
-	df <- rbind(circ.df, center.df)
-	df <- df[sample(1:dim(df)[1],dim(df)[1]),]
+```
+df <- rbind(circ.df, center.df)
+df <- df[sample(1:dim(df)[1],dim(df)[1]),]
+```
 
 Split it up in a training- and test- set, s.t. the model can be validated on the test-set afterwards
 
-	train <- df[1:round(dim(df)[1]/2),]
-	test <- df[round(dim(df)[1]/2):dim(df)[1],]
-	train.X <- train[,-1]
-	train.y <- train[,1]
-	test.X <- test[,-1]
-	test.y <- test[,1]
+```r
+train <- df[1:round(dim(df)[1]/2),]
+test <- df[round(dim(df)[1]/2):dim(df)[1],]
+train.X <- train[,-1]
+train.y <- train[,1]
+test.X <- test[,-1]
+test.y <- test[,1]
+```
 
 Finally plot the training data to see how it looks like. The blue points are those simulated on the circle, with label -1, and the red are the ones simulated inside the circle, label 1.
 
@@ -76,42 +86,46 @@ In practice the weak classifiers are often simple decision trees, could be stump
 
 The algorithm keeps some quantities throughout a loop. These are here implemented below.
 
-	w <- rep(1/nrow(train.X),nrow(train.X))
-	H <- list()
-	alphas <- list()
-
+```r
+w <- rep(1/nrow(train.X),nrow(train.X))
+H <- list()
+alphas <- list()
+```
 
 The w denotes the weights presented above. These can be viewed as a probability distribution held over, in each round `t` of AdaBoost, the observations, and initialized as uniform. This distribution is used to fit a weak classifier `h_t` in each iteration, and to get a weighted accuracy `e_t`.
 
 Two additional quantities are also keept throughout the loops. The training error and test error:
 
-	train_err <- c()
-	test_err <- c()
-
+```r
+train_err <- c()
+test_err <- c()
+```
 
 these will be used for evaluation of the algorithm afterwards.
 
-	for(t in 1:T_){
+```r
+for(t in 1:T_){
 
-	  res <- fit(train.X, train.y, H.space, w)
+  res <- fit(train.X, train.y, H.space, w)
 
-	  e_t <- res[[1]]
+  e_t <- res[[1]]
 
-	  h_t <- res[[2]]
+  h_t <- res[[2]]
 
-	  alpha_t <- 1/2 * log((1-e_t)/e_t)
+  alpha_t <- 1/2 * log((1-e_t)/e_t)
 
-	  Z_t <-  2*sqrt(e_t*(1-e_t))
+  Z_t <-  2*sqrt(e_t*(1-e_t))
 
-	  w <- w * exp(-alpha_t*train.y*predict(train.X,list(h_t),1)) / Z_t
+  w <- w * exp(-alpha_t*train.y*predict(train.X,list(h_t),1)) / Z_t
 
-	  alphas[[t]] <- alpha_t
-	  H[[t]] <- h_t
+  alphas[[t]] <- alpha_t
+  H[[t]] <- h_t
 
 
-	  train_err <- c(train_err, mean(predict(train.X,H,alphas) != train.y))
-	  test_err <- c(test_err, mean(predict(test.X,H,alphas) != test.y))
-	}
+  train_err <- c(train_err, mean(predict(train.X,H,alphas) != train.y))
+  test_err <- c(test_err, mean(predict(test.X,H,alphas) != test.y))
+}
+```
 
 The weighted accuracy `e_t` is used to weigh the new weak hypothesis in the final ensemble by `alpha_t`, weighing them s.t. they greedly contributes the most to the ensemble in terms of in-sample error. This can also intuitively be inferred by a plot of the functional dependency between these two quantities
 
