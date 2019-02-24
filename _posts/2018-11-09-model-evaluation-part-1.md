@@ -27,8 +27,6 @@ $$
 \end{aligned}
 $$
 
-
-
 and then try to minimize
 
 $$
@@ -64,9 +62,15 @@ $$
 \end{aligned}
 $$
 
-*Observing that $\delta=2|\mathcal{H}|e^{-2N\epsilon^2}\Leftrightarrow \epsilon=\sqrt{\frac{\log(|\mathcal{H}|)+\log(\frac{2}{\delta})}{2N}}$ one sees the equivalent statement. QED.*
+Observing that
 
-The above theorem states a learning bound. If $|\mathcal{H}|<\infty$ then with probability less than or equal to $1-\delta$
+$$
+\delta=2|\mathcal{H}|e^{-2N\epsilon^2}\Leftrightarrow \epsilon=\sqrt{\frac{\log(|\mathcal{H}|)+\log(\frac{2}{\delta})}{2N}}
+$$
+
+one sees the equivalent statement. QED.
+
+The above theorem states a learning bound. If $\vert\mathcal{H}\vert<\infty$ then with probability less than or equal to $1-\delta$
 
 $$
 \forall h\in\mathcal{H}:R(h)\leq\hat{R}(h)+\sqrt{\frac{\log{|\mathcal{H}|+\log\frac{2}{\delta}}}{2N}}
@@ -75,12 +79,11 @@ $$
 ## Practice
 In practice one usually splits the entire dataset into three datasets: A Training dataset which is used for training the models, $\sim50\%$ of the data, and a validation- and test-dataset, $\sim25\%$ each, which is used for validating and testing the models.
 
-
-![](/assets/images/2018-11-09-model-evaluation-part-1/train_validation_test.png)
+<img src="/assets/images/2018-11-09-model-evaluation-part-1/train_validation_test.png">
 
 The models are trained on the training dataset, using an algorithm, the performance of this trained model is then evaluated by predicting onto the validation dataset. One does this for multiple models and then selects the best performing one.
 
-![](/assets/images/2018-11-09-model-evaluation-part-1/train_validation.png)
+<img src="/assets/images/2018-11-09-model-evaluation-part-1/train_validation.png">
 
 
 To theoretically justify this approach one can use the above generalization bound. Assume we have tried our luck and fitted $1$ mio. different models $\mathcal{H}=\{h_1,h_2,\dots,h_{1000000}\}$ on the training dataset. These models could consist of KNN for different $k$, classification trees for different depths, random forests for different number of trees and depths for each tree and so on.

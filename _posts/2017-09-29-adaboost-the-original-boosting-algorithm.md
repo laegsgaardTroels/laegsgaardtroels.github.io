@@ -55,8 +55,7 @@ Split it up in a training- and test- set, s.t. the model can be validated on the
 
 Finally plot the training data to see how it looks like. The blue points are those simulated on the circle, with label -1, and the red are the ones simulated inside the circle, label 1.
 
-
-![](/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png)
+<img src="/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png">
 
 
 ## Make weak classifier
@@ -69,7 +68,7 @@ $$e_t=\sum_{i=0}^{2m} w_i 1\{h_t(x_i)\neq y_i\}$$
 
 The code used to implement this can be found on Github.
 
-![](/assets/images//2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisSet.png)
+<img src="/assets/images//2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisSet.png>
 
 In practice the weak classifiers are often simple decision trees, could be stumps: Trees with only one split. But in general one could try out the AdaBoost with almost any procedure in which one can weigh the error.
 
@@ -127,7 +126,7 @@ One also observes the algorithm sometimes chooses a hypothesis to the far right 
 
 <div align="center">
 	<div id="gifdiv">
-	  <img src="/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisAndH1-compressed.jpg" style="max-width: 100%; height: auto;" onclick="changeImage()" id="adagif">
+	  <img src="/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisAndH1-compressed.jpg" onclick="changeImage()" id="adagif">
 	</div>
  </div>
 <script>
@@ -150,7 +149,7 @@ Below one sees the training- (blue) and test- (red) error, which seems to be alm
 
 But as seen in the plotted training- and test-error, red and blue, it seems to be benificial to run AdaBoost in more rounds than indicated by the bound, which is also the case in practical applications.
 
-![](/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExamplegeneralizationBound.png)
+<img src="/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExamplegeneralizationBound.png">
 
 One interesting aspect about these bounds on generalization performance from a practical point of view, is that they can often be decomposed into two terms,
 
