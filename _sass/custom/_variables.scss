@@ -9,8 +9,10 @@ img {
     margin-right: auto;
 }
 .blog-img {
-    width: 200px;
-    height: 250px;
+    height: auto;
+    width: auto;
+    max-width: 400px;
+    max-height: 600px;
 }
 .row-eq-height {
   display: -webkit-box;

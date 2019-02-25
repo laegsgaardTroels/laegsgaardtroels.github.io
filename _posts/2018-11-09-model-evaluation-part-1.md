@@ -1,5 +1,5 @@
 ---
-image:
+image: "/assets/images/2018-11-09-model-evaluation-part-1/Generalization_bound.png"
 ---
 
 Giving an estimate of generalization error in Machine Learning is vital.<!--more-->
@@ -43,29 +43,29 @@ Lets first go through a *learning bound* which can be used to justify the traini
 *Assume $H<\infty$ and $1_{\{\hat{y}\neq y\}}(\hat{y},y)$, then*
 
 $$
-\forall\epsilon>0:\mathbb{P}\left(\max_{h\in\mathcal{H}}|R(h)-\hat{R}(h)|>\epsilon\right)\leq 2|\mathcal{H}|e^{-2N\epsilon^2}
+\forall\epsilon>0:\mathbb{P}\left(\max_{h\in\mathcal{H}}\vert R(h)-\hat{R}(h)\vert>\epsilon\right)\leq 2\vert \mathcal{H}\vert e^{-2N\epsilon^2}
 $$
 
 *or equivalently*
 
 $$
-\forall\delta>0:\mathbb{P}\left(\max_{h\in\mathcal{H}}|R(h)-\hat{R}(h)|>\sqrt{\frac{\log(|\mathcal{H}|)+\log(\frac{2}{\delta})}{2N}}\right)\leq\delta
+\forall\delta>0:\mathbb{P}\left(\max_{h\in\mathcal{H}}\vert R(h)-\hat{R}(h)\vert >\sqrt{\frac{\log(\vert \mathcal{H}\vert )+\log(\frac{2}{\delta})}{2N}}\right)\leq\delta
 $$
 
 *Proof.* Let $\epsilon>0$ use the [Union Bound](https://en.wikipedia.org/wiki/Boole%27s_inequality) and [Hoeffding's Inequality](https://en.wikipedia.org/wiki/Hoeffding%27s_inequality)
 
 $$
 \begin{aligned}
-\mathbb{P}\left(\max_{h\in\mathcal{H}}|R(h)-\hat{R}(h)|>\epsilon\right)&=\mathbb{P}\left(\bigcup_{h\in\mathcal{H}}|R(h)-\hat{R}(h)|>\epsilon\right)\\
-&\leq\mathbb{P}\left(|R(h)-\hat{R}(h)|>\epsilon\right) \\
-&\leq 2|\mathcal{H}|e^{-2N\epsilon^2}
+\mathbb{P}\left(\max_{h\in\mathcal{H}}\vert R(h)-\hat{R}(h)\vert >\epsilon\right)&=\mathbb{P}\left(\bigcup_{h\in\mathcal{H}}\vert R(h)-\hat{R}(h)\vert >\epsilon\right)\\
+&\leq\mathbb{P}\left(\vert R(h)-\hat{R}(h)\vert >\epsilon\right) \\
+&\leq 2\vert \mathcal{H}\vert e^{-2N\epsilon^2}
 \end{aligned}
 $$
 
 Observing that
 
 $$
-\delta=2|\mathcal{H}|e^{-2N\epsilon^2}\Leftrightarrow \epsilon=\sqrt{\frac{\log(|\mathcal{H}|)+\log(\frac{2}{\delta})}{2N}}
+\delta=2\vert \mathcal{H}\vert e^{-2N\epsilon^2}\Leftrightarrow \epsilon=\sqrt{\frac{\log(\vert \mathcal{H}\vert )+\log(\frac{2}{\delta})}{2N}}
 $$
 
 one sees the equivalent statement. QED.
@@ -73,7 +73,7 @@ one sees the equivalent statement. QED.
 The above theorem states a learning bound. If $\vert\mathcal{H}\vert<\infty$ then with probability less than or equal to $1-\delta$
 
 $$
-\forall h\in\mathcal{H}:R(h)\leq\hat{R}(h)+\sqrt{\frac{\log{|\mathcal{H}|+\log\frac{2}{\delta}}}{2N}}
+\forall h\in\mathcal{H}:R(h)\leq\hat{R}(h)+\sqrt{\frac{\log{\vert \mathcal{H}\vert +\log\frac{2}{\delta}}}{2N}}
 $$
 
 ## Practice
@@ -103,7 +103,7 @@ The bound can be stated more loosly as: With probability $1-\delta$
 
 $$
 \begin{aligned}
-R(h)&\leq\hat{R}(h)+O(\sqrt{\frac{\log_2|H|}{N}})\\
+R(h)&\leq\hat{R}(h)+O(\sqrt{\frac{\log_2\vert H\vert}{N}})\\
 &=\hat{R}(h)+\Omega(\mathcal{H},N)
 \end{aligned}
 $$
@@ -111,7 +111,7 @@ $$
 The
 
 $$
-\log_2|\mathcal{H}|
+\log_2\vert\mathcal{H}\vert
 $$
 
 has a nice representation as the number of bits needed to represent $\mathcal{H}$, which seems like a natural measure to measure the complexity of a finite hypothesis space.

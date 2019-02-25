@@ -31,10 +31,10 @@ The `pacman::p_load` function can be seen as a more robust alternative to the fu
 To have complete control over the set-up for this exercise, the data for the classification problem will be simulated. First we will simulate `m <- 10^5`  datapoints in a circle with added noise `sd<-0.13`, and put the result in the dataframe `circ.df`, with the label `-1`.
 
 ```r
-  theta <- runif(m, 0, 2*pi)
-  circ.x <- cos(theta) + rnorm(m,sd=sd)
-  circ.y <- sin(theta) + rnorm(m,sd=sd)
-  circ.df <- data.frame(label = -1, x = circ.x, y = circ.y)
+theta <- runif(m, 0, 2*pi)
+circ.x <- cos(theta) + rnorm(m,sd=sd)
+circ.y <- sin(theta) + rnorm(m,sd=sd)
+circ.df <- data.frame(label = -1, x = circ.x, y = circ.y)
 ```
 
 Simulate `m` points inside the circle with added noise and put it in `center.df`.
@@ -76,9 +76,7 @@ Say we have some prior knowlede about the problem and decides to construct the w
 
 $$e_t=\sum_{i=0}^{2m} w_i 1\{h_t(x_i)\neq y_i\}$$
 
-The code used to implement this can be found on Github.
-
-<img src="/assets/images//2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisSet.png>
+<img src="/assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleHypothesisSet.png">
 
 In practice the weak classifiers are often simple decision trees, could be stumps: Trees with only one split. But in general one could try out the AdaBoost with almost any procedure in which one can weigh the error.
 
