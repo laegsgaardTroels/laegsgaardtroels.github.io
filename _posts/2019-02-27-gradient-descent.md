@@ -91,7 +91,7 @@ $$
 \end{aligned}
 $$
 
-Restricting $\| d\|=1$ then one can see by Cauchy-Schwarz inequality that
+Restricting $\|d\|=1$ then one can see by Cauchy-Schwarz inequality that
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^*$ where $d^*=\frac{- \n
 Gradient descent applies this local approximation and moves along the negative gradient in each iteration.
 
 $$
-\theta_{t+1} = \theta_t - \eta L'(\theta_t)
+\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
 $$
 
 The $\eta$ is called the *learning rate*. It is a tuning parameter, that controls how far the algorithm moves along the negative gradient.
