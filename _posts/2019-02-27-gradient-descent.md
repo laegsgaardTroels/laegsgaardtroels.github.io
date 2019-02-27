@@ -101,7 +101,7 @@ $$
 \end{aligned}
 $$
 
-So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^*$ where $d^*=\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function.
+So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^\star$ where $d^\star=\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function.
 
 Gradient descent applies this local approximation and moves along the negative gradient in each iteration.
 
