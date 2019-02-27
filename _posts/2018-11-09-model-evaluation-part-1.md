@@ -97,7 +97,9 @@ $$
 \cdot 10^6}} = 0.003539520
 $$
 
-Thats pretty close with a high probability.
+Thats pretty close with a high probability. Varying the size on the hypothesis space has only a small effect on the bound which is quite remarkable.
+
+<img src="/assets/images/2018-11-09-model-evaluation-part-1/Generalization_bound.png">
 
 The bound can be stated more loosly as: With probability $1-\delta$
 
