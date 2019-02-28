@@ -1,11 +1,10 @@
 ---
 layout: default
+comments: true
 ---
 <h1>{{ page.title }}</h1>
 <p>{{ page.date | date_to_string }}</p>
 
 {{ content }}
 
-{% if site.disqus.shortname %}
-  {% include disqus_comments.html %}
-{% endif %}
+{% include disqus_comments.html %}
