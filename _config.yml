@@ -24,4 +24,4 @@ excerpt_separator: <!--more-->
 # Used for Disqus.
 # https://desiredpersona.com/disqus-comments-jekyll/
 disqus:
-   shortname: machinelearningnotes-1.disqus.com
+   shortname: machinelearningnotes-1
