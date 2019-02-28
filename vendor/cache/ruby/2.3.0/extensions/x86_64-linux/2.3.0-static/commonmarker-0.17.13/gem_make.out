@@ -1,5 +1,5 @@
 current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/commonmarker-0.17.13/ext/commonmarker
-/home/troels/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190224-13627-mbtyq4.rb extconf.rb
+/home/troels/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190228-24940-1bcsag1.rb extconf.rb
 creating Makefile
 
 current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/commonmarker-0.17.13/ext/commonmarker
@@ -337,4 +337,4 @@ linking shared-object commonmarker/commonmarker.so
 
 current directory: /home/troels/git/laegsgaardTroels.github.io/vendor/cache/ruby/2.3.0/gems/commonmarker-0.17.13/ext/commonmarker
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20190224-13627-qydaut/commonmarker
+/usr/bin/install -c -m 0755 commonmarker.so ./.gem.20190228-24940-f2m5s5/commonmarker
