@@ -15,8 +15,8 @@ title: Blog
             <img style="height:220px; max-height:270px; width:300px; border: 0; background: transparent; padding: 5%;"src="{{ post.image }}" onerror="this.src=/assets/images/base/missing.jpg">
           </div>
           <div class="row-1">
-            <!-- CATEGORY <strong class="d-inline-block mb-2 text-primary">World</strong>-->
             <h3>{{ post.title }}</h1>
+	    <strong> {{ post.category }} </strong>
             <div class="text-muted">{{ post.date | date_to_string }}</div>
             <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | append: '[...]'}}</p>
             <a href="{{ post.url }}">Continue reading</a>

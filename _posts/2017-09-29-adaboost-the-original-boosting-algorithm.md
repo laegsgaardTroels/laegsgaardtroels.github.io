@@ -1,5 +1,6 @@
 ---
 image: /assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png
+category: Algorithm
 ---
 In this post the famous AdaBoost algoritm will be implemented in R<!--more--> and tested on simulated data. The post is intented to yield some intuition and understanding about what boosting is via an exercise.
 
@@ -173,3 +174,7 @@ Where \\(R(H)\\) is the true generalization error, \\(\hat{R}(H)\\) is the in-sa
 ## Conclusion
 
 This post touched the surface of some components of AdaBoost, and hopefully woke some interest into these types of algorithms.
+
+## References
+
+[1] https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf

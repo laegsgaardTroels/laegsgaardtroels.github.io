@@ -1,5 +1,6 @@
 ---
 image: "/assets/images/2018-11-09-model-evaluation-part-1/Generalization_bound.png"
+category: Statistical Learning
 ---
 
 Giving an estimate of generalization error in Machine Learning is vital.<!--more-->

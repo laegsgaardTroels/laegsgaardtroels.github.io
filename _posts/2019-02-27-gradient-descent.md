@@ -1,5 +1,6 @@
 ---
 image: "/assets/images/2019-02-27-gradient-descent/descent_path.png"
+category: Optimization
 ---
 
 The gradient descent algorithm and its variants are some of the most widely used optimization algorithms in machine learning today<!--more-->. In this post a super simple example of gradient descent will be implemented.
