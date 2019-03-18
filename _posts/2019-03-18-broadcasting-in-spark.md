@@ -11,7 +11,7 @@ A broadcast variable is an object of type `spark.broadcast.Broadcast[T]`, it wra
 
 In below assume `df` is a `pyspark.sql.DataFrame` the broadcast variable can be used in a udf.
 
-```
+```python
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
 from pyspark.sql import Row
