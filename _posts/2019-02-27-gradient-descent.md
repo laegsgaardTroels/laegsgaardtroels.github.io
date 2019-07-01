@@ -1,9 +1,12 @@
 ---
-image: "/assets/images/2019-02-27-gradient-descent/descent_path.png"
-category: Optimization
+image: /assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_6_0.png
+category: Algorithm
 ---
+The gradient descent algorithm and its variants is one of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
 
-The gradient descent algorithm and its variants are some of the most widely used optimization algorithms in machine learning today<!--more-->. In this post a super simple example of gradient descent will be implemented.
+## Example
+
+We will use the simple function $L(x)=x^2$, and call it our *loss function*.
 
 
 ```python
@@ -18,11 +21,15 @@ theta = np.linspace(-T, T)
 
 
 fig = plt.figure(0, figsize=(15, 10))
-_ = plt.plot(theta, L(theta))
+plt.plot(theta, L(theta))
 _ = plt.title('Loss function', size=20)
 ```
 
-<img src="/assets/images/2019-02-27-gradient-descent/loss_function.png">
+
+![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_2_0.png)
+
+
+## Algorithm
 
 The derivative of $L(\theta)=\theta^2$ wrt. x is $\frac{\partial}{\partial \theta}L(\theta)=2\theta$. The gradient descent algorithm goes as follow:
 
@@ -30,24 +37,36 @@ The derivative of $L(\theta)=\theta^2$ wrt. x is $\frac{\partial}{\partial \thet
 1. **Initiate** $\theta_0\in\mathbb{R}, \eta\in\mathbb{R}$.
 
     1.1. **Update**: $\theta_{t+1} = \theta_t - \eta L'(\theta_t)$.
-
+    
     1.2. **Stop**: If stopping criterium is satisfied.
-
-Below we will run the algorithm in Python for T iterations.
+    
+Intuitively one takes a small step in the direction of steepest local descent. Lets implement some helper functions to simulate the algorithm.
 
 
 ```python
-# Save the results
-theta_ = np.zeros(T)
-dL = lambda x : 2 * x
+def simulate_gradient_descent(theta_0, eta):
 
+    # Save the results in below
+    theta_ = np.zeros(T)
+    
+    # The derivative of x**2
+    dL = lambda x : 2 * x
 
-# The alogrithm
-theta_[0] = T
-eta = 0.3
+    # 1. Initiate
+    theta_[0] = T
+    eta = eta
 
-for t in range(T-1):
-    theta_[i + 1] = theta_[i] - eta * dL(theta_[i])
+    for t in range(T-1):
+
+        # 1.1. Update
+        theta_[t + 1] = theta_[t] - eta * dL(theta_[t])
+    
+    return theta_
+
+def plot(theta_path, eta):
+    plt.plot(theta, L(theta))
+    plt.plot(theta_path, L(theta_path), label=eta)
+    plt.legend(prop={'size': 15})
 ```
 
 ## Results
@@ -56,16 +75,54 @@ Lets plot the path of the gradient descent algorithm.
 
 
 ```python
+eta = 0.3
+theta_path = simulate_gradient_descent(T, eta)
+
 fig = plt.figure(1, figsize=(15, 10))
 plt.rc('text', usetex=True)
-_ = plt.plot(theta, L(theta))
-_ = plt.plot(theta_, L(theta_))
-_ = plt.text(theta_[0], L(theta_[0]), r'$\theta_0$', size = 20)
-_ = plt.text(theta_[-1], L(theta_[-1]), r'$\theta_T$', size = 20)
-_ = plt.title('Gradient Descent of the loss function', size=20)
+plot(theta_path, eta)
+_ = plt.text(theta_path[0], L(theta_path[0]), r'$\theta_0$', size = 20)
+_ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
 ```
 
-<img src="/assets/images/2019-02-27-gradient-descent/descent_path.png">
+
+![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_6_0.png)
+
+
+It takes small steps with small $\eta$ and large steps with large $\eta$.
+
+
+```python
+fig = plt.figure(1, figsize=(15, 10))
+
+for idx, eta in enumerate(np.arange(0, 1, 0.05)):
+    plt.subplot(4, 5, idx + 1)
+    eta = round(eta,3)
+    
+    theta_path = simulate_gradient_descent(T, eta)
+    plot(theta_path, eta)
+
+```
+
+
+![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_8_0.png)
+
+
+With $\eta>1$ it occilates to infinity.
+
+
+```python
+fig = plt.figure(1, figsize=(15, 10))
+
+eta = 1.01
+theta_path = simulate_gradient_descent(T, eta)
+plot(theta_path, eta)
+_ = plt.text(theta_path[0], L(theta_path[0]), r'$\theta_0$', size = 20)
+_ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
+```
+
+
+![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_10_0.png)
 
 
 ## Intuition
@@ -73,41 +130,41 @@ _ = plt.title('Gradient Descent of the loss function', size=20)
 The intuition of gradient descent is that in each iteration of the **update** step one does a local linear approximation of the loss function, a 1st order Taylor expansion of $L(\theta+d)$ around $d=0$, that is for $d\in\mathbb{R}, \theta_t\in\mathbb{R}$
 
 $$
-\begin{aligned}
+\begin{align}
     L(\theta_t+d) &\approx L(\theta_t) + \frac{\partial L(\theta_t+d)}{\partial d}(0) \cdot (d - 0) \\
     &= L(\theta_t) + \frac{\partial (\theta_t + d)}{\partial d}(0) \frac{\partial L(x)}{\partial x}(\theta_t+0) \cdot (d - 0)  && \text{Chain rule.} \\
     &= L(\theta_t) + \frac{\partial L(x)}{\partial x} (\theta_t) \cdot d
-\end{aligned}
+\end{align}
 $$
 
-Using this local approximation one sees that $L$ minimized in the direction of the negative gradient $d=-\frac{\partial L(x)}{\partial x} (\theta_t)$
+Using this local approximation one sees that $L$ is minimized in the direction of the negative gradient $d=-\frac{\partial L(x)}{\partial x} (\theta_t)$.
 
 ## Higher Dimensions
 
 This also holds in higher dimensions where the approximation is $d\in\mathbb{R^d}, \theta_t\in\mathbb{R^d}$
 
 $$
-\begin{aligned}
+\begin{align}
     L(\theta_t+d) \approx L(\theta_t) + \nabla L(\theta_t)^T d
-\end{aligned}
+\end{align}
 $$
 
-Restricting $\|d\|=1$ then one can see by Cauchy-Schwarz inequality that
+Restricting $\|\| d\|\|=1$ then one can see by Cauchy-Schwarz inequality that
 
 $$
-\begin{aligned}
-    \nabla L(\theta_t)^T d & \geq - \lvert \nabla L(\theta_t)^T d \lvert \\
+\begin{align}
+    \nabla L(\theta_t)^T d & \geq - \|\| \nabla L(\theta_t)^T d \|\| \\
     & \geq - \| \nabla L(\theta_t) \| \| d \| && \text{Cauchy Schwarz.} \\
         &= \nabla L(\theta_t)^T\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}
-\end{aligned}
+\end{align}
 $$
 
-So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^\star$ where $d^\star=\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function.
+So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d$ where $d=\frac{- \nabla L(\theta_t)}{\|\|\nabla L(\theta_t)\|\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function. 
 
-Gradient descent applies this local approximation and moves along the negative gradient in each iteration.
+Gradient descent applies this local approximation and moves along the negative gradient in each iteration. 
 
 $$
-\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
+\theta_{t+1} = \theta_t - \eta L'(\theta_t)
 $$
 
-The $\eta$ is called the *learning rate*. It is a tuning parameter, that controls how far the algorithm moves along the negative gradient.
+The $\eta$ is called the *learning rate*. It is a tuning parameter, that controls how far the algorithm steps along the negative gradient.
