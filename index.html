@@ -1,8 +1,27 @@
 ---
 layout: default
-title: Home
+title: Blog
 ---
-<div class="jumbotron">
-  <h1 class="display-4">Welcome to Machine Learning Notes!</h1>
-  <p class="lead">This is a blog where I write notes about applied Machine Learning and interesting theortical results, all completely subjective..</p>
+
+<div class="row">
+  {% for post in site.posts %}
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch" style="margin-bottom: 20px;">
+      <div class="card"
+            style="border: 3.0;
+                   background: transparent;
+                   padding: 10%;"
+      >
+          <div class="row-11">
+            <img style="height:220px; max-height:270px; width:300px; border: 0; background: transparent; padding: 5%;"src="{{ post.image }}" onerror="this.src=/assets/images/base/missing.jpg">
+          </div>
+          <div class="row-1">
+            <h3>{{ post.title }}</h1>
+	    <strong> {{ post.category }} </strong>
+            <div class="text-muted">{{ post.date | date_to_string }}</div>
+            <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | append: '[...]'}}</p>
+            <a href="{{ post.url }}">Continue reading</a>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
 </div>

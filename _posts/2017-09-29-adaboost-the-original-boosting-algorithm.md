@@ -8,14 +8,14 @@ What is boosting? Lets start explaining this with a nice analogy provided by the
 
 "... *A horse-racing gambler, hoping to maximize his winnings, decides to create a computer program that will accurately predict the winner of a horse race based on the usual information (number of races recently won by each horse, betting odds for each horse, etc.). To create such a program, he asks a highly successful expert gambler to explain his betting strategy. Not surprisingly, the expert is unable to articulate a grand set of rules for selecting a horse. On the other hand, when presented with the data for a specific set of races, the expert has no trouble coming up with a “rule of thumb” for that set of races (such as, “Bet on the horse that has recently won the most races” or “Bet on the horse with the most favored odds”). Although such a rule of thumb, by itself, is obviously very rough and inaccurate, it is not unreasonable to expect it to provide predictions that are at least a little bit better than random guessing. Furthermore, by repeatedly asking the expert’s opinion on
 different collections of races, the gambler is able to extract many rules of thumb.
-In order to use these rules of thumb to maximum advantage, there are two problems faced by the gambler: First, how should he choose the collections of races presented to the expert so as to extract rules of thumb from the expert that will be the most useful? Second, once he has collected many rules of thumb, how can they be combined into a single, highly accurate prediction rule?* ...
--[Yoav Freund and Robert E. Schapire](https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf) "
+In order to use these rules of thumb to maximum advantage, there are two problems faced by the gambler: First, how should he choose the collections of races presented to the expert so as to extract rules of thumb from the expert that will be the most useful? Second, once he has collected many rules of thumb, how can they be combined into a single, highly accurate prediction rule?* ... "
+-[Yoav Freund and Robert E. Schapire](https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf)
 
 The idea of boosting is to take these weak rules of thumbs, also called *weak classifiers* \\(h_t\\), and via a procedure, called a *boosting algorithm*, produce a strong classifier.
 
 $$H_T(x)=\text{sign}\sum_{t=0}^T \alpha_t h_t(x)$$
 
-AdaBoost was the first really succesful boosting algorithm, it has undergone a lot of empirical testing and theoretical study. If you are more interested after this post, in the theory, then I suggest you look into the book  [Schapire and Freund [2012]](https://mitpress.mit.edu/books/boosting).
+AdaBoost was the first really succesful boosting algorithm, it has undergone a lot of empirical testing and theoretical study. If you are more interested after this post, in the theory, then I suggest you look into the book [2].
 
 ## Packages
 
@@ -177,4 +177,6 @@ This post touched the surface of some components of AdaBoost, and hopefully woke
 
 ## References
 
-[1] https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf
+[1] Yoav Freund and Robert E. Schapire, *[A Short Introduction to Boosting](https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf)*. Journal of Japanese Society for Artificial Intelligence, 1999
+
+[2] Yoav Freund and Robert E. Schapire, *Boosting: Foundations and Algorithms*. The MIT Press, 2012 

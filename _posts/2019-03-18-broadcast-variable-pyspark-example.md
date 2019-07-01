@@ -48,6 +48,9 @@ df = (
 )
 ```
 
-##References:
+In this small example we fit a NN model to the training data on the master node and then broadcast it out to each worker node to find the nearest neighbours for the samples in validation.
+
+
+## References
 
 [1] Holden Karau, Andy Konwinski, Patrick Wendell, Matei Zaharia, *Learning Spark: Lightning-Fast Big Data Analysis*. O'Reilly Media, 2015.

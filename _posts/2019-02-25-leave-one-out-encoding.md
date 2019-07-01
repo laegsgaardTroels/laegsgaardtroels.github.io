@@ -15,5 +15,5 @@ The technique is described in [1], as
 
 It can be seen like the stacking technique with the average value for each level of the categorical feature as the response variable. The stacking technique is a widely used ensemble learning technique used in a lot of winning solutions in Kaggle, it is therefore not surprising that such a technique as the above works, especially for categorical features with many level, where the above trick might be used to somewhat circumvent the *curse of dimensionality*.
 
-## Reference:
+## References:
 [1] https://nycdatascience.com/blog/meetup/featured-talk-1-kaggle-data-scientist-owen-zhang/
