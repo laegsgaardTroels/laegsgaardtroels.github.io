@@ -3,9 +3,33 @@ image: "/assets/images/base/apache_spark.png"
 category: Programming
 ---
 
-Broadcasting a variable is useful for repeatedly used read-only variables in an application<!--more-->, like lookup tables or similar.
+Broadcasting a variable is useful for repeatedly used read-only variables in an application<!--more-->, like large lookup tables or similar. Spark automatically sends all variables referenced in your closures to the worker nodes. While this is convenient, it can also be inefficient because (1) the default task launching mechanism is optimized for small task sizes, and (2) you might, in fact, use the same variable in multiple parallel operations, but Spark will send it separately for each
+operation [1, 104]. A broadcast variable in is an object of type `spark.broadcast.Broadcast[T]`, it wraps a Serializable value of type `T`. This value can be accessed by calling the `value` property. The variable will be sent to each node once and should be treated as read-only (updates will not be propagated to other nodes)[1, p. 104-106]. If you broadcast the variable it will be distributed efficiently once per node. 
 
-A broadcast variable is an object of type `spark.broadcast.Broadcast[T]`, it wraps a Serializable value of type `T`. This value can be accessed by calling the `value` property (PySpark). The variable will be sent to each node once and should be treated as read-only (updates will not be propagated to other nodes)[1, p. 104-106].
+Example by [2]: If you have huge array that is accessed from Spark Closures, for example some reference data, this array will be shipped to each spark node with closure. If you for example if you have 10 nodes cluster with 100 partitions (10 partitions per node), this Array will be distributed at least 100 times (10 times to each node).
+
+```scala
+val array: Array[Int] = ??? // some huge array
+val broadcasted = sc.broadcast(array)
+```
+
+And some RDD
+
+```scala
+val rdd: RDD[Int] = ???
+```
+
+In this case array will be shipped with closure each time
+
+```scala
+rdd.map(i => array.contains(i))
+```
+
+and with broadcast you'll get huge performance benefit
+
+```scala
+rdd.map(i => broadcasted.value.contains(i))
+```
 
 ## Example
 
@@ -54,3 +78,9 @@ In this small example we fit a NN model to the training data on the master node 
 ## References
 
 [1] Holden Karau, Andy Konwinski, Patrick Wendell, Matei Zaharia, *Learning Spark: Lightning-Fast Big Data Analysis*. O'Reilly Media, 2015.
+
+[2] [Ramana, What are broadcast variables? What problems do they solve?. Stackoverflow question 2014](https://stackoverflow.com/questions/26884871/what-are-broadcast-variables-what-problems-do-they-solve)
+
+[3] [Umberto Griffo, When to use Broadcast variable. Blog Post.](https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/when_to_use_broadcast_variable.html)
+
+
