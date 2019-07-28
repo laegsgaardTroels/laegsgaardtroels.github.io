@@ -1,6 +1,7 @@
 ---
 image: /assets/images/2017-09-29-adaboost-the-original-boosting-algorithm/AdaBoostExampleData.png
 category: Algorithm
+code: True
 ---
 In this post the famous AdaBoost algoritm will be implemented in R<!--more--> and tested on simulated data. The post is intented to yield some intuition and understanding about what boosting is via an exercise.
 
@@ -179,4 +180,4 @@ This post touched the surface of some components of AdaBoost, and hopefully woke
 
 [1] Yoav Freund and Robert E. Schapire, *[A Short Introduction to Boosting](https://cseweb.ucsd.edu/~yfreund/papers/IntroToBoosting.pdf)*. Journal of Japanese Society for Artificial Intelligence, 1999
 
-[2] Yoav Freund and Robert E. Schapire, *Boosting: Foundations and Algorithms*. The MIT Press, 2012 
+[2] Yoav Freund and Robert E. Schapire, *Boosting: Foundations and Algorithms*. The MIT Press, 2012

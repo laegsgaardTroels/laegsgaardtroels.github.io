@@ -1,8 +1,28 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }}</p>
+
+<div class="page-header">
+  <div class="pull-left">
+  <h1>{{ page.title }}</h1>
+  </div>
+  <div class="pull-right">
+
+    {% if page.code %}
+      <div class="text-right">
+        <a href="{{ page.url | remove: '.html' | append: '-code.html'}}">
+          [<i>View code on Github</i> <span class="fa fa-github"></span>]
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="text-muted">{{ page.date | date_to_string }}</div>
+
+<br>
 
 {{ content }}
 
