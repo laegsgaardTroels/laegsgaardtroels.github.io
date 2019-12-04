@@ -3,7 +3,7 @@ image: "/assets/images/base/apache_spark.png"
 category: Programming
 ---
 
-Differences between the Pyspark pipeline object and the one in sklearn.<!--more-->
+Differences between the Pyspark pipeline API and the one in sklearn pipeline API.<!--more-->
 The pipeline object in sklearn makes it easy to sequentially apply a list of transforms and a final estimator [1], when creating models with sklearn these makes it easy to organize models. 
 PySpark has a similar pipeline API but there are some differences
 
