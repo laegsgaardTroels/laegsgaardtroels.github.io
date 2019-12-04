@@ -38,10 +38,10 @@ model = pipeline.fit(train)
 test_with_predictions = model.predict(test)  # This will add a `prediction` column AND a `features` column to test.
 
 # Save the model for later use.
-model.write().overwrite().save('somewhere_in_foundry_fs/my_great_model')
+model.write().overwrite().save('/tmp/my_great_model')
 
 # Load the model later.
-model = PipelineModel.load('somewhere_in_foundry_fs/my_great_model')
+model = PipelineModel.load('/tmp/my_great_model')
 ```
 
 The added `features` column is added from the `VectorAssembler`.
@@ -49,6 +49,6 @@ The added `features` column is added from the `VectorAssembler`.
 
 ## References
 
-[1] https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
+[1]: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-[2] https://spark.apache.org/docs/latest/ml-pipeline.html 
+[2]: https://spark.apache.org/docs/latest/ml-pipeline.html 
