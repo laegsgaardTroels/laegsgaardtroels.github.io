@@ -49,6 +49,6 @@ The added `features` column is added from the `VectorAssembler`.
 
 ## References
 
-[1]: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
+[1] https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 
-[2]: https://spark.apache.org/docs/latest/ml-pipeline.html 
+[2] https://spark.apache.org/docs/latest/ml-pipeline.html 
