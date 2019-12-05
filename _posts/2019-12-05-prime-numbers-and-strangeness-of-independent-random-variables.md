@@ -9,7 +9,7 @@ Assume a probability space $(\Omega, \mathcal{F}, \mathbb{P})$. Where the sample
 
 This is how one can model a lottery. The fun thing is now when $N$ is a **prime number**.
 
-Assume $A,B\in\mathcal{F}$ are two independent events, $$A,B\notin\{\Omega, \emptyset \}$$, $m=\rvert A\rvert$, $k=\rvert B\rvert$, $n=A\cap B$ then
+Assume $A,B\in\mathcal{F}$ are two independent events, $$A,B\notin\{\Omega, \emptyset \}$$, $m=\rvert A\rvert$, $k=\rvert B\rvert$, $n=\rvert A\cap B \rvert$ then
 
 $$
 \begin{aligned}
