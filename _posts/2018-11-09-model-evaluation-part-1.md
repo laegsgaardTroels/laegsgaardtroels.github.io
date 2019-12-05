@@ -120,3 +120,10 @@ $$
 has a nice representation as the number of bits needed to represent $\mathcal{H}$, which seems like a natural measure to measure the complexity of a finite hypothesis space.
 
 Similar bound holds on the testing dataset, which is used give to the user of the model as an assesment of performance, the complexity term $\Omega(\mathcal{H},N)$ is then much smaller, because one usually only selects one model to test in practice: The best one on the validation set.
+
+Above is some of my interpretations of chapter 1 in  [1].
+
+## References
+
+[1] Foundations of Machine Learning (Adaptive Computation and Machine Learning series), 2012. Mehryar Mohri, Afshin Rostamizadeh, Ameet Talwalkar  
+by Mehryar Mohri, Afshin Rostamizadeh, Ameet Talwalkar.
