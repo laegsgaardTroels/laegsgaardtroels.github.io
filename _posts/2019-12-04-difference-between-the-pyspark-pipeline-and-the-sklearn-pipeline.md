@@ -3,13 +3,14 @@ image: /assets/images/2019-12-04-difference-between-the-sklearn-pipeline-and-the
 category: Programming
 ---
 
-The pipeline object in sklearn makes it easy to sequentially apply a list of transforms and a final estimator [1], when creating models with sklearn these makes it easy to organize models.
+The pipeline object in sklearn makes it easy to sequentially apply a list of transforms and a final estimator [1]. This makes it easy to organize models.
 PySpark has a similar pipeline API but there are some differences.<!--more-->
 
-1.  `.fit()` and `.transform()` methods (but no `.predict()` method) other differences are
-2. You can specify the subset of input features in a pipeline.
-3. When predicting you use a `.transform()` method on a fitted model object, which adds extra column(s) based on the model.
-4. The input features are `Vector` object, You usually use the `VectorAssembler` in the first step of the pipeline to assemble input features into this object.
+1. There are a `.fit()` and `.transform()` method, they work in the same way in sklearn but on the `pyspark.sql.DataFrame`, but there are  no `.predict()` method.
+2. You can specify the subset of input features in a pipeline. E.g. you don't have to apply the model to *all* the columns in a dataframe `X` but you can do with a subset.
+3. Similar with the response variable can be specified as a column in the dataframe.
+4. When predicting you use the `.transform()` method on a fitted model object, which adds extra column(s) based on the model.
+5. The input features are `Vector` object, You usually use the `VectorAssembler` in the first step of the pipeline to assemble input features into this object.
 
 Sample code snippet:
 
