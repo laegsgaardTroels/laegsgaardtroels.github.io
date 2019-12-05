@@ -42,8 +42,8 @@ Because the prime factorization is unique.
 
 But $\forall i,j:$ $p^m_i\leq m<N$ and $p^k_j\leq k<N$. This is a contradiction.
 
-Hence if $N$ is a prime number and $A,B$ are independent then $A,B\in\{\Omega, \emptyset \}$, *the trivial independent events*. But if $N$ is not a prime number then $N=k\cdot m$ for some integers, assume $k,m\geq 2$.
-Let $A=\{1,\dots,m\}$ and $B=\{m,2m\dots,km\}$ implies
+Hence if $N$ is a prime number and $A,B$ are independent then $$A,B\in\{\Omega, \emptyset \}$$, *the trivial independent events*. But if $N$ is not a prime number then $N=k\cdot m$ for some integers, assume $k,m\geq 2$.
+Let $$A=\{1,\dots,m\}$$ and $$B=\{m,2m\dots,km\}$$ implies
 
 $$
 \begin{aligned}
