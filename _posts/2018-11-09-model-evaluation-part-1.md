@@ -5,7 +5,7 @@ category: Statistical Learning
 
 Giving an estimate of generalization error in Machine Learning is vital.<!--more-->
 
-This is to minimize *risk* given a hypothesis space $\mathcal{H}$. To simplyfy matters assume the hypothesis space consists of a finilite set of estimators $\mathcal{H}=\{h_1,h_2,\dots,h_M\}$. Given a *loss function* $L$ which we for simplicity assume is the 0-1 loss $L(\hat{y},y)=1_{\{\hat{y}\neq y\}}(\hat{y},y)$. Risk is then defined as
+This is to minimize *risk* given a hypothesis space $\mathcal{H}$. To simplyfy matters assume the hypothesis space consists of a finilite set of estimators $$\mathcal{H}=\{h_1,h_2,\dots,h_M\}$$. Given a *loss function* $L$ which we for simplicity assume is the 0-1 loss $$L(\hat{y},y)=1_{\{\hat{y}\neq y\}}(\hat{y},y)$$. Risk is then defined as
 
 $$
 \begin{aligned}
@@ -41,7 +41,7 @@ This is known as *Empirical Risk Mimimization* (ERM).
 
 Lets first go through a *learning bound* which can be used to justify the training validation split given the above objective.
 
-*Assume $H<\infty$ and $1_{\{\hat{y}\neq y\}}(\hat{y},y)$, then*
+*Assume $H<\infty$ and $$1_{\{\hat{y}\neq y\}}(\hat{y},y)$$, then*
 
 $$
 \forall\epsilon>0:\mathbb{P}\left(\max_{h\in\mathcal{H}}\vert R(h)-\hat{R}(h)\vert>\epsilon\right)\leq 2\vert \mathcal{H}\vert e^{-2N\epsilon^2}
@@ -87,7 +87,7 @@ The models are trained on the training dataset, using an algorithm, the performa
 <img src="/assets/images/2018-11-09-model-evaluation-part-1/train_validation.png">
 
 
-To theoretically justify this approach one can use the above generalization bound. Assume we have tried our luck and fitted $1$ mio. different models $\mathcal{H}=\{h_1,h_2,\dots,h_{1000000}\}$ on the training dataset. These models could consist of KNN for different $k$, classification trees for different depths, random forests for different number of trees and depths for each tree and so on.
+To theoretically justify this approach one can use the above generalization bound. Assume we have tried our luck and fitted $1$ mio. different models $$\mathcal{H}=\{h_1,h_2,\dots,h_{1000000}\}$$ on the training dataset. These models could consist of KNN for different $k$, classification trees for different depths, random forests for different number of trees and depths for each tree and so on.
 
 The above generalization bound gives a worst case performance with some probability. Assume we want to be sure that our model performs well with a probability of $0.95$, in above $\delta=0.05$, and that we have a validation sample of size $1$ mio.
 
@@ -106,7 +106,7 @@ The bound can be stated more loosly as: With probability $1-\delta$
 
 $$
 \begin{aligned}
-R(h)&\leq\hat{R}(h)+O(\sqrt{\frac{\log_2\vert H\vert}{N}})\\
+R(h)&\leq\hat{R}(h)+O(\sqrt{\frac{\log_2\vert \mathcal{H}\vert}{N}})\\
 &=\hat{R}(h)+\Omega(\mathcal{H},N)
 \end{aligned}
 $$
