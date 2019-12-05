@@ -1,5 +1,5 @@
 ---
-image: "/assets/images/2019-12-04-difference-between-the-pyspark-pipeline-and-the-sklearn-pipeline/pipeline.png"
+image: /home/troels/git/laegsgaardTroels.github.io/assets/images/2019-12-05-prime-numbers-and-strangeness-of-independent-random-variables/pipeline.png
 category: Programming
 ---
 
