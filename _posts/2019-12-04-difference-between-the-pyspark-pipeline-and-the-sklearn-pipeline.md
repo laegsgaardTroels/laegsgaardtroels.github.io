@@ -1,10 +1,10 @@
 ---
-image: "/assets/images/base/apache_spark.png"
+image: "/assets/images/2019-12-04-difference-between-the-pyspark-pipeline-and-the-sklearn-pipeline/pipeline.png"
 category: Programming
 ---
 
 Differences between the Pyspark pipeline API and the one in sklearn pipeline API.<!--more-->
-The pipeline object in sklearn makes it easy to sequentially apply a list of transforms and a final estimator [1], when creating models with sklearn these makes it easy to organize models. 
+The pipeline object in sklearn makes it easy to sequentially apply a list of transforms and a final estimator [1], when creating models with sklearn these makes it easy to organize models.
 PySpark has a similar pipeline API but there are some differences
 
 1.  `.fit()` and `.transform()` methods (but no `.predict()` method) other differences are
@@ -18,7 +18,7 @@ Sample code snippet:
 from pyspark.ml import Pipeline
 from pyspark.ml import PipelineModel
 from pyspark.ml.feature import VectorAssembler
-from pyspark.ml.regression import RandomForestRegressor 
+from pyspark.ml.regression import RandomForestRegressor
 
 
 assembler = VectorAssembler(
@@ -49,6 +49,6 @@ The added `features` column is added from the `VectorAssembler`.
 
 ## References
 
-[1] https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
+[1] [Sklearn pipeline docs](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html)
 
-[2] https://spark.apache.org/docs/latest/ml-pipeline.html 
+[2] [Spark pipeline docs](https://spark.apache.org/docs/latest/ml-pipeline.html)
