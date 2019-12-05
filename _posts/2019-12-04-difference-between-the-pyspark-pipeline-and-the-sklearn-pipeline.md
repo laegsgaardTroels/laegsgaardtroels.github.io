@@ -1,5 +1,5 @@
 ---
-image: /home/troels/git/laegsgaardTroels.github.io/assets/images/2019-12-04-difference-between-the-sklearn-pipeline-and-the-pyspark-pipeline/pipeline.jpg
+image: /assets/images/2019-12-04-difference-between-the-sklearn-pipeline-and-the-pyspark-pipeline/pipeline.jpg
 category: Programming
 ---
 
