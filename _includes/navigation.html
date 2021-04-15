@@ -2,7 +2,7 @@
   <a class="navbar-brand" href="/">Machine Learning Notes</a>
     <ul class="nav navbar-nav">
       {% for item in site.data.navigation %}
-          <li><a href="{{ item.link }}"> {{ item.name }} </a></li>
+          <li><a class="nav-item active" href="{{ item.link }}"> {{ item.name }} </a></li>
       {% endfor %}
     </ul>
 </nav>
