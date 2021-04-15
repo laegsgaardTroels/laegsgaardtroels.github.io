@@ -134,3 +134,6 @@ dmypy.json
 
 # Removed vendor
 vendor/
+
+# Mac files
+.DS_Store

@@ -6,9 +6,6 @@ title: Blog
 <div class="row">
   {% for post in site.posts %}
 
-    {% if post.url contains "code" %}
-
-    {% else %}
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch" style="margin-bottom: 20px;">
         <div class="card"
               style="border: 3.0;
@@ -27,7 +24,7 @@ title: Blog
 
               {% if post.code %}
                   &emsp;
-                  <a href="{{ post.url | remove: '.html' | append: '-code.html'}}">
+                  <a href="{{ post.code }}" target="_blank">
                     [<i>View code</i> <span class="fa fa-github"></span>]
                   </a>
               {% endif %}
@@ -35,8 +32,6 @@ title: Blog
             </div>
         </div>
     </div>
-
-    {% endif %}
 
   {% endfor %}
 </div>

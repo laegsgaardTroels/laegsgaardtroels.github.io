@@ -1,7 +1,8 @@
 ---
-image: /assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_6_0.png
+image: /assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_10_0.png
 category: Algorithm
 ---
+
 The gradient descent algorithm and its variants is one of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
 
 ## Example
@@ -26,7 +27,9 @@ _ = plt.title('Loss function', size=20)
 ```
 
 
-![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_2_0.png)
+    
+![png](2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_2_0.png)
+    
 
 
 ## Algorithm
@@ -86,7 +89,9 @@ _ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
 ```
 
 
-![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_6_0.png)
+    
+![png](2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_6_0.png)
+    
 
 
 It takes small steps with small $\eta$ and large steps with large $\eta$.
@@ -105,7 +110,9 @@ for idx, eta in enumerate(np.arange(0, 1, 0.05)):
 ```
 
 
-![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_8_0.png)
+    
+![png](2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_8_0.png)
+    
 
 
 With $\eta>1$ it occilates to infinity.
@@ -122,7 +129,9 @@ _ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
 ```
 
 
-![png](/assets/images/2019-02-27-gradient-descent/2019-02-27-gradient-descent_10_0.png)
+    
+![png](2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_10_0.png)
+    
 
 
 ## Intuition
@@ -149,22 +158,22 @@ $$
 \end{align}
 $$
 
-Restricting $\|\| d\|\|=1$ then one can see by Cauchy-Schwarz inequality that
+Restricting $\| d\|=1$ then one can see by Cauchy-Schwarz inequality that
 
 $$
 \begin{align}
-    \nabla L(\theta_t)^T d & \geq - \|\| \nabla L(\theta_t)^T d \|\| \\
+    \nabla L(\theta_t)^T d & \geq - \lvert \nabla L(\theta_t)^T d \lvert \\
     & \geq - \| \nabla L(\theta_t) \| \| d \| && \text{Cauchy Schwarz.} \\
         &= \nabla L(\theta_t)^T\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}
 \end{align}
 $$
 
-So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d$ where $d=\frac{- \nabla L(\theta_t)}{\|\|\nabla L(\theta_t)\|\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function. 
+So $ \nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^*$ where $d^*=\frac{- \nabla L(\theta_t)}{\|\nabla L(\theta_t)\|}$, therefore $- \nabla L(\theta_t)$ is the local direction which minimizes the loss function. 
 
 Gradient descent applies this local approximation and moves along the negative gradient in each iteration. 
 
 $$
-\theta_{t+1} = \theta_t - \eta L'(\theta_t)
+\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
 $$
 
 The $\eta$ is called the *learning rate*. It is a tuning parameter, that controls how far the algorithm steps along the negative gradient.
