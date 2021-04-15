@@ -1,4 +1,5 @@
 ---
+image: /assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_6_0.png
 category: Algorithm
 ---
 The gradient descent algorithm and its variants is one of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
@@ -133,11 +134,17 @@ With $\eta>1$ it occilates to infinity.
 fig = plt.figure(1, figsize=(15, 10))
 
 eta = 1.01
-theta_path = simulate_gradient_descent(T, eta)
+theta_path = simulate_gradient_descent(M, eta)
 plot(theta_path, eta)
 _ = plt.text(theta_path[0], L(theta_path[0]), r'$\theta_0$', size = 20)
 _ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
 ```
+
+
+    
+![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_10_0.png)
+    
+
 
 ## Intuition
 
