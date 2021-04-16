@@ -20,7 +20,12 @@ title: Blog
   	          <strong> {{ post.category }} </strong>
               <div class="text-muted">{{ post.date | date_to_string }}</div>
               <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | append: '[...]'}}</p>
-              <a href="{{ post.url }}">Continue reading</a>
+              
+              {% if post.aurl %}
+                <a href="{{ post.aurl }}">Continue reading</a>
+              {% else %}
+                <a href="{{ post.url }}">Continue reading</a>
+              {% endif %}
 
               {% if post.code %}
                   &emsp;
