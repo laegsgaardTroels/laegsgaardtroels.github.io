@@ -1,6 +1,7 @@
 ---
 image: "/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_6_0.png"
 category: Algorithm
+code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master/notebooks/2019-02-27-gradient-descent.ipynb
 ---
 The gradient descent algorithm and its variants is one of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
 
