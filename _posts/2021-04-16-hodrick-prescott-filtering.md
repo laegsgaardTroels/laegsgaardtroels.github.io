@@ -1,12 +1,13 @@
 ---
-image: "assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_1_0.png"
+image: "/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_2_0.png"
 category: Algorithm
 code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master/notebooks/2021-04-16-hodrick-prescott-filtering.ipynb
 ---
-Hodrick-Prescott filtering is a filtering method. A *filtering method* can be used to find $x_t$ given $x_1,\dots,x_t$. <!--more-->
+Hodrick-Prescott filtering is a filtering method. A *filtering method* can be used to find $x_t$ given $x_1,\dots,x_t$. In this post we will go through a simple filtering example with Hodrick-Prescott filtering. <!--more-->
 
 However Hodrick-Prescott seems in my view most useful as an offline *smoothing method* e.g. for finding $x_t$ given $x_1,\dots,x_T$ for $1\leq t\leq T$.
 
+A good article about the related $l_1$ trend filtering and this filtering method is found in [1].
 
 In Hodrick-Prescott filtering, the trend estimate $x_t$ is chosen to minimize the objective function:
     
@@ -33,6 +34,36 @@ D =
 \end{bmatrix}
 $$
 
+The second part of the objective function:
+
+$$
+\lambda \sum_{t=1}^{n-1}(x_{t-1} - 2x_t + x_{t+1})^2
+$$
+
+Is a term penalizing the central difference estimate of the second derivative:
+
+$$
+x_{t-1} - 2x_t + x_{t+1} = \frac{\frac{x_{t-1} - x_t}{1} - \frac{x_t - x_{t+1}}{1}}{1}
+$$
+
+Assuming a constant difference of $1$ between the observations. If the difference between the observations is a different, but still constant value, $h$ then 
+
+$$
+\frac{\frac{x_{t-1} - x_t}{h} - \frac{x_t - x_{t+h}}{h}}{h} = \frac{1}{h^2}(x_{t-1} - 2x_t + x_{t+1})
+$$
+
+The $h$ be factored to the regularization parameter $\lambda$ e.g.
+
+$$
+\begin{aligned}
+\frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \eta \sum_{t=1}^{n-1}(\frac{1}{h^2}(x_{t-1} - 2x_t + x_{t+1}))^2 
+&= \frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \frac{\eta}{h^4} \sum_{t=1}^{n-1}(x_{t-1} - 2x_t + x_{t+1})^2 \\
+&= \frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \lambda \sum_{t=1}^{n-1}(x_{t-1} - 2x_t + x_{t+1})^2
+\end{aligned}
+$$
+
+If $\lambda = \frac{\eta}{h^4}$. The right hand side is now the same objective function but wrt. a central difference estimate with constant difference $h$ between the observations. 
+
 The optimal value can be find by setting the derivative to $0$, because the objective is strictly convex.
 
 $$
@@ -51,30 +82,6 @@ y
 x &= (I + \lambda 2 D^TD)^{-1}y
 \end{aligned}
 $$
-
-The second part is a term penalizing the central difference estimate of the second derivative:
-
-$$
-x_{t-1} - 2x_t + x_{t+1} = \frac{\frac{x_{t-1} - x_t}{1} - \frac{x_t - x_{t+1}}{1}}{1}
-$$
-
-Assuming a constant difference of $1$ between the observations, if the difference between the observations is a different, but still a constant value, $h$ then 
-
-$$
-\frac{\frac{x_{t-1} - x_t}{h} - \frac{x_t - x_{t+h}}{h}}{h} = \frac{1}{h^2}(x_{t-1} - 2x_t + x_{t+1})
-$$
-
-The $h$ be factored to the regularization parameter $\lambda$ e.g.
-
-$$
-\begin{aligned}
-\frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \eta \sum_{t=1}^{n-1}(\frac{1}{h^2}(x_{t-1} - 2x_t + x_{t+1}))^2 
-&= \frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \frac{\eta}{h^4} \sum_{t=1}^{n-1}(x_{t-1} - 2x_t + x_{t+1})^2 \\
-&= \frac{1}{2}\sum_{t=1}^{n}(y_t - x_t)^2 + \lambda \sum_{t=1}^{n-1}(x_{t-1} - 2x_t + x_{t+1})^2
-\end{aligned}
-$$
-
-If $\lambda = \frac{\eta}{h^4}$. The right hand side is the same objective function but now wrt. a central difference estimate with constant difference $h$ between the observations. 
 
 
 ```python
@@ -108,7 +115,7 @@ plt.show()
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_1_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_2_0.png)
     
 
 
@@ -180,7 +187,7 @@ plt.show()
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_8_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_9_0.png)
     
 
 
@@ -201,7 +208,7 @@ plt.show()
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_10_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_11_0.png)
     
 
 
@@ -220,7 +227,7 @@ plt.show()
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_12_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_13_0.png)
     
 
 
@@ -269,7 +276,7 @@ plt.show()
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_19_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_20_0.png)
     
 
 

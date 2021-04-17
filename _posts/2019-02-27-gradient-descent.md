@@ -1,5 +1,5 @@
 ---
-image: "/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_6_0.png"
+image: "/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_7_0.png"
 category: Algorithm
 code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master/notebooks/2019-02-27-gradient-descent.ipynb
 ---
@@ -28,7 +28,7 @@ _ = plt.title('Loss function', size=20)
 
 
     
-![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_2_0.png)
+![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_3_0.png)
     
 
 
@@ -78,8 +78,9 @@ def simulate_gradient_descent(theta_0, eta):
 def plot(theta_path, eta):
     """Plot the path walked by the algorithm.
     
-    theta_path (List[float]): A list of thetas walked by the algorithm.
-    eta (float): The learning rate.
+    Args:
+        theta_path (List[float]): A list of thetas walked by the algorithm.
+        eta (float): The learning rate.
     """
     plt.plot(theta, L(theta))
     plt.plot(theta_path, L(theta_path), label=eta)
@@ -98,13 +99,14 @@ theta_path = simulate_gradient_descent(M, eta)
 fig = plt.figure(1, figsize=(15, 10))
 plt.rc('text', usetex=True)
 plot(theta_path, eta)
-_ = plt.text(theta_path[0], L(theta_path[0]), r'$\theta_0$', size = 20)
-_ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
+plt.text(theta_path[0], L(theta_path[0]), r'$\theta_0$', size = 20)
+plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
+plt.show()
 ```
 
 
     
-![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_6_0.png)
+![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_7_0.png)
     
 
 
@@ -117,14 +119,13 @@ fig = plt.figure(1, figsize=(15, 10))
 for idx, eta in enumerate(np.arange(0, 1, 0.05)):
     plt.subplot(4, 5, idx + 1)
     eta = round(eta,3)
-    
     theta_path = simulate_gradient_descent(M, eta)
     plot(theta_path, eta)
 ```
 
 
     
-![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_8_0.png)
+![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_9_0.png)
     
 
 
@@ -143,7 +144,7 @@ _ = plt.text(theta_path[-1], L(theta_path[-1]), r'$\theta_T$', size = 20)
 
 
     
-![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_10_0.png)
+![png](/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_11_0.png)
     
 
 
@@ -181,7 +182,7 @@ $$
 \end{align}
 $$
 
-So $\nabla L(\theta_t)^T d^\star \geq \nabla L(\theta_t)^T d$ where $d^\star=\frac{-\nabla L(\theta_t)}{\lVert\nabla L(\theta_t)\rVert}$, therefore $-\nabla L(\theta_t)$ is the local direction which minimizes the loss function. 
+So $\nabla L(\theta_t)^T d \geq \nabla L(\theta_t)^T d^\star$ where $d^\star=\frac{-\nabla L(\theta_t)}{\lVert\nabla L(\theta_t)\rVert}$, therefore $-\nabla L(\theta_t)$ is the local direction which minimizes the loss function. 
 
 Gradient descent applies this local approximation and moves along the negative gradient in each iteration. 
 
@@ -189,4 +190,4 @@ $$
 \theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
 $$
 
-The $\eta$ is called the *learning rate*. It is a tuning parameter, that controls how far the algorithm steps along the negative gradient.
+The $\eta$ is often called the *learning rate*. It is a tuning parameter, that controls how far the algorithm steps along the negative gradient.
