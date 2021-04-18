@@ -3,7 +3,7 @@ image: "/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-des
 category: Algorithm
 code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master/notebooks/2019-02-27-gradient-descent.ipynb
 ---
-The gradient descent algorithm and its variants is one of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
+The gradient descent algorithm and its variants are some of the most widely used optimization algorithms in machine learning today. In this post a super simple example of gradient descent will be implemented.<!--more-->
 
 ## Example
 
@@ -39,7 +39,7 @@ The derivative of $L(\theta)=\theta^2$ wrt. x is $\frac{\partial}{\partial \thet
 
 1. **Initiate** $\theta_0\in\mathbb{R}, \eta\in\mathbb{R}$.
 
-    1.1. **Update**: $\theta_{t+1} = \theta_t - \frac{\partial}{\partial \theta} \nabla L(\theta_t)$.
+    1.1. **Update**: $\theta_{t+1} = \theta_t - \eta \frac{\partial}{\partial \theta} L(\theta_t)$.
     
     1.2. **Stop**: If stopping criterium is satisfied.
     
@@ -47,33 +47,33 @@ Intuitively one takes a small step in the direction of steepest local descent. L
 
 
 ```python
-def simulate_gradient_descent(theta_0, eta):
+def simulate_gradient_descent(theta_0, eta, max_iter=100):
     """Simulate the next gradient by running the algorithm.
     
     Args:
         theta_0 (float): The initial value of theta.
         eta (float): The learning rate.
+        max_iter (int): The maximum number of iterations.
     
     Returns:
         List[float]: A list of thetas walked by the algorithm.
     """
 
     # Save the results in below
-    theta_ = np.zeros(M)
+    thetas = np.zeros(max_iter + 1)
     
     # The derivative of x**2
     dL = lambda x : 2 * x
 
     # 1. Initiate
-    theta_[0] = M
-    eta = eta
+    thetas[0] = M
 
-    for t in range(M-1):
+    for t in range(max_iter):
 
         # 1.1. Update
-        theta_[t + 1] = theta_[t] - eta * dL(theta_[t])
+        thetas[t + 1] = thetas[t] - eta * dL(thetas[t])
     
-    return theta_
+    return thetas
 
 def plot(theta_path, eta):
     """Plot the path walked by the algorithm.
@@ -118,7 +118,7 @@ fig = plt.figure(1, figsize=(15, 10))
 
 for idx, eta in enumerate(np.arange(0, 1, 0.05)):
     plt.subplot(4, 5, idx + 1)
-    eta = round(eta,3)
+    eta = round(eta, 3)
     theta_path = simulate_gradient_descent(M, eta)
     plot(theta_path, eta)
 ```
@@ -160,7 +160,9 @@ $$
 \end{align}
 $$
 
-Using this local approximation one sees that $L$ is minimized in the direction of the negative gradient $d=-\frac{\partial L(x)}{\partial x} (\theta_t)$.
+Using this local approximation one sees that $L$ is minimized in the direction of the negative gradient $d=-\frac{\partial L(x)}{\partial x} (\theta_t)$. 
+
+The reason why the algorithm has the stepsize $\eta$ is intuitvely because the local linear approximation only works well around a neighbourhood of $\theta_t$.
 
 ## Higher Dimensions
 

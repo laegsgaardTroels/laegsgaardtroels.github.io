@@ -5,7 +5,7 @@ code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master
 ---
 Hodrick-Prescott filtering is a filtering method. A *filtering method* can be used to find $x_t$ given $x_1,\dots,x_t$. In this post we will go through a simple filtering example with Hodrick-Prescott filtering. <!--more-->
 
-However Hodrick-Prescott seems in my view most useful as an offline *smoothing method* e.g. for finding $x_t$ given $x_1,\dots,x_T$ for $1\leq t\leq T$.
+However Hodrick-Prescott filtering seems most useful as an offline *smoothing method* e.g. for finding $x_t$ given $x_1,\dots,x_T$ for $1\leq t\leq T$.
 
 A good article about the related $l_1$ trend filtering and this filtering method is found in [1].
 
@@ -82,6 +82,8 @@ y
 x &= (I + \lambda 2 D^TD)^{-1}y
 \end{aligned}
 $$
+
+Lets test the filtering method out in a simulation experiment.
 
 
 ```python
@@ -233,7 +235,9 @@ plt.show()
 
 # Online Version
 
-My take on an online version of this filtering method. In this online version one fixes the size of the projection matrix it iterativly on a fifo queue of the signal $y$ taking the midpoint in each iteration of the projected values in each iteration.
+Below is my take on an online version of this filtering method. 
+
+In this online version one fixes the size of the projection matrix and iterativly applies it to a fixed sized fifo queue of the signal $y$ taking the midpoint in each iteration of the projected values.
 
 
 ```python
@@ -265,18 +269,20 @@ for i in range(N_ONLINE, len(y)):
 x_hp_online = np.array(x_hp_online)
 ```
 
+The result is less smooth.
+
 
 ```python
 plt.figure(figsize=(15, 10))
 plt.plot(t[N_ONLINE // 2:-N_ONLINE // 2] , x_hp_online, '-')
 plt.plot(t, y, '.')
-plt.title("A Time Series with Hodrick-Prescott filtering")
+plt.title("A Time Series with Hodrick-Prescott filtering, online")
 plt.show()
 ```
 
 
     
-![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_20_0.png)
+![png](/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_21_0.png)
     
 
 
