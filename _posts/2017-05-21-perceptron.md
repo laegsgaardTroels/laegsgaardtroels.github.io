@@ -14,7 +14,7 @@ $$
 
 where $f$ is a non-linear function, for the Perceptron $f=\text{sign}$. This class of models is the basic building block for **feedforward neural networks**.
 
-The perceptron works like an artificial neuron, when fed an $x\in\mathcal{X}$ to be classified, the observations will be weighed using the weights: $w_1,w_2,\dots,w_m\in\mathbb{R}$; if the artificial neuron is stimulated enough, $\sum_jw_jx_j>-b \Rightarrow h(x)=1$, then the neuron fires. 
+The perceptron works like an artificial neuron, when fed an $x\in\mathbb{R}^d$ to be classified, the observations will be weighed using the weights: $w_1,w_2,\dots,w_m\in\mathbb{R}$; if the artificial neuron is stimulated enough, $\sum_jw_jx_j>-b \Rightarrow h(x)=1$, then the neuron fires. 
 
 <img src="/assets/images/2017-05-21-perceptron/perceptron.png">
 
