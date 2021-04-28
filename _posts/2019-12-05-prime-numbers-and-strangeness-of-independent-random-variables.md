@@ -65,7 +65,7 @@ $$
 N=2^{127}=170141183460469231731687303715884105728
 $$
 
-Then there are lots of nontrivial pairs of independent events. This example does not imply that the definition of independence is wrong, but that the mathematical definition of independence does not fully cover the intuitive concept op independence.
+Then there are lots of nontrivial pairs of independent events. This example does not imply that the definition of independence is wrong, but in my view that the mathematical definition of independence may not fully cover the intuitive concept of independence.
 
 ## References
 
