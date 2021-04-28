@@ -1,5 +1,5 @@
 ---
-image: /assets/images/2017-05-21-perceptron/perceptron.png
+image: /assets/images/2017-05-21-perceptron/neuron.png
 category: Algorithm
 ---
 
