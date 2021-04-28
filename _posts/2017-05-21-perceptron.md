@@ -12,7 +12,7 @@ $$
 \end{aligned}
 $$
 
-where $f$ is a non-linear function, for the Perceptron $f=\text{sign}$. This class of models is the basic building block for **feedforward neural networks** (FNN).
+where $f$ is a non-linear function, for the Perceptron $f=\text{sign}$. This class of models is the basic building block for **feedforward neural networks**.
 
 The perceptron works like an artificial neuron, when fed an $x\in\mathcal{X}$ to be classified, the observations will be weighed using the weights: $w_1,w_2,\dots,w_m\in\mathbb{R}$; if the artificial neuron is stimulated enough, $\sum_jw_jx_j>-b \Rightarrow h(x)=1$, then the neuron fires. 
 
@@ -37,8 +37,7 @@ $$
 One notices that for a single observation $(x_i, y_i)$ that:
 
 $$
-\frac{\partial}{\partial w} L_i(w)
-= \begin{cases}
+\begin{cases}
     \text{Correctly classified: }w'x_iy_i>0 \Rightarrow L_i(w)=\min(w'x_i y_i,0)=0 \Rightarrow \frac{\partial}{\partial w} L_i(w) = 0\\
     \text{Wrongly classified: } \  w'x_iy_i<0 \Rightarrow L_i(w)=\min(w'x_i y_i,0)<0 \Rightarrow \frac{\partial}{\partial w} L_i(w) = x_i y_i
 \end{cases}
