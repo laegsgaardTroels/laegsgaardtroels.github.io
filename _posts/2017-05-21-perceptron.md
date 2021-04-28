@@ -57,3 +57,7 @@ w_{t+1}
 $$
 
 With a new observation $(x_i, y_i)$ in each iteration. That is basically the perceptron learning algorithm. 
+
+# References
+
+[1] Rosenblatt. “The Perceptron: A probalistic model for information storage and organization in the brain”. 1958.
