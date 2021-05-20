@@ -137,3 +137,6 @@ vendor/
 
 # Mac files
 .DS_Store
+
+# Ignore git projects with example code.
+_git
