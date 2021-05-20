@@ -1,5 +1,5 @@
 ---
-image: /assets/images/2019-07-11-pydata-london/pydata.jpg
+image: /assets/images/2019-07-11-pydata-london/pydata.png
 category: Technology
 ---
 
