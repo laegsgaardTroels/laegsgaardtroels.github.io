@@ -1,5 +1,5 @@
 ---
-image: "/assets/images/2019-02-27-gradient-descent_files/2019-02-27-gradient-descent_7_0.png"
+image: "/assets/images/2019-02-27-gradient-descent_files/gradient_descent.svg"
 category: Algorithm
 code: https://github.com/laegsgaardTroels/gradient-descent
 ---
