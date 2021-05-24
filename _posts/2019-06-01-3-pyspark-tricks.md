@@ -1,5 +1,5 @@
 ---
-image: "/assets/images/base/apache_spark.png"
+image: "/assets/images/base/apache_spark.svg"
 category: Programming
 ---
 
