@@ -1,6 +1,7 @@
 ---
 image: /assets/images/2017-05-21-perceptron/neuron.png
 category: Algorithm
+code: https://github.com/laegsgaardTroels/perceptron
 ---
 
 The Perceptron by Rosenblat is one of the earliest machine learning algorithms. It was proposed as a model of an artificial neuron, and can be used for classification.<!--more-->
@@ -16,7 +17,7 @@ where $f$ is a non-linear function, for the Perceptron $f=\text{sign}$. This cla
 
 The perceptron works like an artificial neuron, when fed an $x\in\mathbb{R}^d$ to be classified, the observations will be weighed using the weights: $w_1,w_2,\dots,w_m\in\mathbb{R}$; if the artificial neuron is stimulated enough, $\sum_jw_jx_j>-b \Rightarrow h(x)=1$, then the neuron fires. 
 
-<img src="/assets/images/2017-05-21-perceptron/perceptron.png">
+<img src="/assets/images/2017-05-21-perceptron/perceptron.svg" width="500" height="auto">
 
 A problem with the perceptron is that the activation function is not differentiable, making it unclear how to fit a multilayer perceptron, defined below, with this choice of activation function, instead one can choose a differentiable activation-function like the sigmoid function: $f(x)=\sigma(x)=\frac{1}{1+e^{-x}}$, used in logistic regression, which has the nice property that: $\sigma'(x)=\sigma(x)(1-\sigma(x))$, making it easy to differentiate.
 
