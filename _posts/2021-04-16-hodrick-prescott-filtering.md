@@ -1,7 +1,7 @@
 ---
 image: "/assets/images/2021-04-16-hodrick-prescott-filtering_files/2021-04-16-hodrick-prescott-filtering_2_0.png"
 category: Algorithm
-code: https://github.com/laegsgaardTroels/laegsgaardTroels.github.io/blob/master/notebooks/2021-04-16-hodrick-prescott-filtering.ipynb
+code: https://github.com/laegsgaardTroels/hodrick-prescott-filtering
 ---
 Hodrick-Prescott filtering is a filtering method. A *filtering method* can be used to find $x_t$ given $x_1,\dots,x_t$. In this post we will go through a simple filtering example with Hodrick-Prescott filtering. <!--more-->
 
