@@ -1,9 +1,9 @@
 ---
-image: "/assets/images/2021-06-09-haversine/law-of-haversines.svg"
+image: "/assets/images/2021-07-09-haversine/law-of-haversines.svg"
 category: Distance Metric
 code: https://github.com/laegsgaardTroels/haversine
 ---
-The haversine distance can be used to calculate the distance between two points on a sphere. Here is my derivation of it.<!--more--> Assume you have two points $p_1 = (r, \theta_1, \varphi_1)$ and $p_2=(r, \theta_2, \varphi_2)$ in spherical coordinates. 
+The haversine distance can be used to calculate the distance between two points on a sphere. Here is my derivation of it. Assume you have two points $p_1 = (r, \theta_1, \varphi_1)$ and $p_2=(r, \theta_2, \varphi_2)$ in spherical coordinates. 
 
 $r$ is the radius of the sphere. $\theta_1, \theta_2\in(-\frac{\pi}{2}, \frac{\pi}{2}]$ is the latitude. $\varphi_1, \varphi_2\in(-\pi, \pi]$ is the longitude.
 
@@ -27,7 +27,7 @@ $$
 \end{aligned}
 $$
 
-Where $\angle(v_1, v_2)$ is the angle between the two vectors. Let $v_1 = (x_1, y_1, z_1)^T$ and $v_2 = (x_1, y_1, z_1)^T$ where $\lVert v_1 \rVert = \lVert v_2 \rVert = r$. You can now calculate this angle by:
+Where $\angle(v_1, v_2)$ is the angle between the two vectors. Let $v_1 = (x_1, y_1, z_1)^T$ and $v_2 = (x_2, y_2, z_2)^T$ where $\lVert v_1 \rVert = \lVert v_2 \rVert = r$. You can now calculate this angle by:
 
 $$
 \begin{aligned}
