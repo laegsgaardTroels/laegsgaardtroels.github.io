@@ -3,7 +3,7 @@ image: "/assets/images/2021-06-09-haversine/law-of-haversines.svg"
 category: Distance Metric
 code: https://github.com/laegsgaardTroels/haversine
 ---
-The haversine distance can be used to calculate the distance between two points on a sphere. Here is my derivation of it. Assume you have two points $p_1 = (r, \theta_1, \varphi_1)$ and $p_2=(r, \theta_2, \varphi_2)$ in spherical coordinates. 
+The haversine distance can be used to calculate the distance between two points on a sphere. Here is my derivation of it.<!--more--> Assume you have two points $p_1 = (r, \theta_1, \varphi_1)$ and $p_2=(r, \theta_2, \varphi_2)$ in spherical coordinates. 
 
 $r$ is the radius of the sphere. $\theta_1, \theta_2\in(-\frac{\pi}{2}, \frac{\pi}{2}]$ is the latitude. $\varphi_1, \varphi_2\in(-\pi, \pi]$ is the longitude.
 
