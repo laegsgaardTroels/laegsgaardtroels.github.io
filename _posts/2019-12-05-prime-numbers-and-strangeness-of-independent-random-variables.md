@@ -69,7 +69,7 @@ Then there are lots of nontrivial pairs of independent events. This example does
 
 ## Example: A Dice
 
-A thought of mine. An example of above would be a single dice X defined on $(\{1,2,3,4,5,6\}, \mathcal{F}, \mathbb{P})$ where $\mathcal{F}=\mathcal{P}(\Omega)$ and the probability is the discrete uniform distribution $\mathbb{P}(A)=\frac{\rvert A \rvert}{N}$ as above.
+A thought of mine. An example of above would be a single dice X defined on $(\\{1,2,3,4,5,6\\}, \mathcal{F}, \mathbb{P})$ where $\mathcal{F}=\mathcal{P}(\Omega)$ and the probability is the discrete uniform distribution $\mathbb{P}(A)=\frac{\rvert A \rvert}{N}$ as above.
 
 Now 6 is not a prime number. Its unique prime factorization is $6=2*3$. Now each outcome can be mapped 1-1 with an index consisting of two random numbers $I\in\{1,2\}$ and $J\in\{1,2,3\}$ with uniform distribution e.g. $\mathbb{P}(I=i)=\frac{1}{2}$ and $\mathbb{P}(J=j)=\frac{1}{3}$ for $i=1,2$ and $j=1,2,3$.
 
@@ -77,16 +77,16 @@ As an example:
 
 $$
 \begin{aligned}
-    I = 1, J = 1 \Rightarrow X = 1
-    I = 1, J = 2 \Rightarrow X = 2
-    I = 1, J = 3 \Rightarrow X = 3
-    I = 2, J = 1 \Rightarrow X = 4
-    I = 2, J = 2 \Rightarrow X = 5
+    I = 1, J = 1 \Rightarrow X = 1 \\
+    I = 1, J = 2 \Rightarrow X = 2 \\
+    I = 1, J = 3 \Rightarrow X = 3 \\
+    I = 2, J = 1 \Rightarrow X = 4 \\
+    I = 2, J = 2 \Rightarrow X = 5 \\
     I = 2, J = 6 \Rightarrow X = 6
 \end{aligned}
 $$
 
-The mapping is not really that important in my view. What is interesting now is that I has 2 outcomes and J has 3 outcomes both prime, so $\mathcal{P}_I$ and $\mathcal{P}_J$ has no independent events and $I \perp \!\!\! \perp J$ which can be seen because $\mathcal{P}(I=i, J=j)=\frac{1}{6}=\frac{1}{2}\frac{1}{3}=\mathcal{P}(I=i)\mathcal{P}(J=j)$ per construction.
+The mapping is not really that important in my view. What is interesting now is that I has 2 outcomes and J has 3 outcomes both prime, so $\mathbb{P}_I$ and $\mathbb{P}_J$ has no independent events and I and J are independent which can be seen because $\mathbb{P}(I=i, J=j)=\frac{1}{6}=\frac{1}{2}\frac{1}{3}=\mathbb{P}(I=i)\mathbb{P}(J=j)$ per construction.
 
 So you can view a roll of this theoretical die as two independent outcomes from $I$ and $J$ that determines the index of the die. 
 
