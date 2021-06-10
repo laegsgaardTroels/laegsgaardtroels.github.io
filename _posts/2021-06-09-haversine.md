@@ -1,5 +1,5 @@
 ---
-image: "/assets/images/2021-07-09-haversine/law-of-haversines.svg"
+image: "/assets/images/2021-06-09-haversine/law-of-haversines.svg"
 category: Distance Metric
 code: https://github.com/laegsgaardTroels/haversine
 ---
