@@ -58,8 +58,8 @@ g
 Then use:
 
 ```bash
-~$ split -l 1 filt.txt splitted
-~$ cat splitted* > combined.txt
+split -l 1 filt.txt splitted
+cat splitted* > combined.txt
 ```
 
 #### Global regular expression print with `grep`
