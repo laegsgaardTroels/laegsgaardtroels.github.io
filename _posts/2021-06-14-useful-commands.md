@@ -45,7 +45,21 @@ A time based scheduler in unix.
 `split` and `cat` can be used to split a file and concatentate it again.
 
 ```
-cat file_a.txt file_b.txt file_c.txt > file.txt
+# file.txt
+a
+b
+c
+d
+e
+f
+g
+```
+
+Then use:
+
+```bash
+~$ split -l 1 filt.txt splitted
+~$ cat splitted* > combined.txt
 ```
 
 #### Global regular expression print with `grep`
