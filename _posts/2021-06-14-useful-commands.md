@@ -3,7 +3,46 @@ image: "/assets/images/base/linux.svg"
 category: Bash
 ---
 
-A few useful commands beyond the usual `cd`, `rm`, `mv`, `ls`, `pwd` etc.<!--more-->
+Useful commands. <!--more-->
+
+#### Change directory with `cd`
+
+```bash
+cd to/new/directory/
+```
+
+#### Remove file with `rm`
+
+```bash
+rm file.txt                        # Remove file.
+rm -rf folder                      # Remove folder.
+```
+
+#### Move and renmae file with `mv`
+
+```bash
+mv file.txt other.txt              # Rename.
+mv file.txt folder/file.txt        # Move to folder.
+```
+
+#### List files with `ls`
+
+```bash
+ls
+ls -l                              # To view permissions.
+```
+
+#### File System Disk Space with `df`
+
+```bash
+df
+```
+
+#### Pathname of the current working directory with `pwd`
+
+```bash
+pwd
+```
 
 #### No Hang Up with `nohup`
 
