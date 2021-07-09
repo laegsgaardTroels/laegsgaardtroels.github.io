@@ -34,7 +34,7 @@ ls -l                              # To view permissions.
 
 #### View running processes with `top` and `htop`
 
-```
+```bash
 top
 htop                               # Nicer UI and some extra stuff.
 ```
