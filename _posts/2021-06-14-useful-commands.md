@@ -95,13 +95,25 @@ crontab -l
 
 #### Transfer data from a URL with `curl`
 
+Below will get you the HTML for Google:
+
+```bash
+curl www.google.com
+```
+
 #### Transfer data with `wget`
+
+Below will get you the index file for Google:
+
+```bash
+wget www.google.com
+```
 
 #### Split and combine files with `split` and `cat`
 
 `split` and `cat` can be used to split a file and concatentate it again.
 
-```
+```bash
 # file.txt
 a
 b
