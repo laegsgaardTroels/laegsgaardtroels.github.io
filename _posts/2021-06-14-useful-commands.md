@@ -163,6 +163,8 @@ ssh -NfL localhost:5006:localhost:5006 user@remote.host
 
 #### JSON processing with `jq`
 
+#### Download data from FTP server with `lftp`
+
 # References
 
 [1] https://stedolan.github.io/jq/
