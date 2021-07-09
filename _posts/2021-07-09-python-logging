@@ -3,7 +3,7 @@ image: "/assets/images/base/python.svg"
 category: Python
 ---
 
-Logging is a nice debugging tool in Python. A mimimal example would be:
+Logging is a nice debugging tool in Python. <!--more--> A mimimal example would be:
 
 ```python
 import logging
