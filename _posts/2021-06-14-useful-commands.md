@@ -32,11 +32,27 @@ ls
 ls -l                              # To view permissions.
 ```
 
+#### Kill a process with `kill`
+
+You get the process id (`<PID`) from `top` or `ps`.
+
+```bash
+kill <PID>
+```
+
 #### View running processes with `top` and `htop`
 
 ```bash
 top
+top -u trol                        # Filter on a single user.
 htop                               # Nicer UI and some extra stuff.
+```
+
+#### View running processes with `ps`
+
+```bash
+ps
+ps -u trol                        # Filter on a single user.
 ```
 
 #### File System Disk Space with `df`
@@ -176,6 +192,12 @@ ssh -NfL localhost:5006:localhost:5006 user@remote.host
 #### JSON processing with `jq`
 
 #### Download data from FTP server with `lftp`
+
+#### Get the current user with `whoami`
+
+```
+whoami                                      # Outputs: trol
+```
 
 # References
 
