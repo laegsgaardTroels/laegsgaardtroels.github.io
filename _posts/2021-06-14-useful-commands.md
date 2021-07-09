@@ -32,6 +32,13 @@ ls
 ls -l                              # To view permissions.
 ```
 
+#### View running processes with `top` and `htop`
+
+```
+top
+htop                               # Nicer UI and some extra stuff.
+```
+
 #### File System Disk Space with `df`
 
 ```bash
@@ -75,9 +82,20 @@ View the file tree in the terminal up to a certain level.
 tree -L 2
 ```
 
-#### Crontab
+#### Run scheduled jobs with `cron`
 
-A time based scheduler in unix.
+A time based scheduler in unix. An hourly **cronjob** can look like this:
+
+```bash
+crontab -l
+0 * * * * /bin/python /path/to/this/file.py
+```
+
+#### Create a tarball with `tar`
+
+#### Transfer data from a URL with `curl`
+
+#### Transfer data with `wget`
 
 #### Split and combine files with `split` and `cat`
 
@@ -97,9 +115,18 @@ g
 Then use:
 
 ```bash
-split -l 1 filt.txt splitted
+split -l 1 combined.txt splitted
 cat splitted* > combined.txt
 ```
+
+You can actually split a tarball and combine it again afterwards:
+
+```bash
+split combined.tar.gz splitted
+cat splitted* > combined.tar.gz
+```
+
+Can be useful for file transfer if you have a very big tarball.
 
 #### Global regular expression print with `grep`
 
@@ -129,3 +156,13 @@ I've found it useful to create a SSH tunnel when developing a `bokeh` server on 
 ```bash
 ssh -NfL localhost:5006:localhost:5006 user@remote.host
 ```
+
+#### Sync data with `rsync`
+
+#### Mount a folder with `nfs`
+
+#### JSON processing with `jq`
+
+# References
+
+[1] https://stedolan.github.io/jq/
