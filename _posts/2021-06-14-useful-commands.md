@@ -11,6 +11,14 @@ Useful commands. <!--more-->
 cd to/new/directory/
 ```
 
+#### Clear the shell with `clear`
+
+Enough said.
+
+```bash
+clear
+```
+
 #### Remove file with `rm`
 
 ```bash
