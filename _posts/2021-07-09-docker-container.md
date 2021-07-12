@@ -1,5 +1,5 @@
 ---
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/2880px-Docker_%28container_engine%29_logo.svg.png"
+image: "/assets/images/base/docker.svg"
 category: Docker
 ---
 
